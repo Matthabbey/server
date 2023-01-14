@@ -1,7 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
 export interface UserInstance{
-    _id: String,
     username: String,
     email: string,
     password: string,
@@ -10,10 +9,7 @@ export interface UserInstance{
 }
 
 const UserSchema = new Schema<UserInstance>({
-    _id: {
-        type: String,
-        required: false
-    },
+ 
     username: {
         type: String,
         required: true,

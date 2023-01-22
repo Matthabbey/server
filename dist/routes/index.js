@@ -8,4 +8,7 @@ const controller_1 = require("../controller");
 const router = express_1.default.Router();
 router.post('/register', controller_1.RegisterUser);
 router.get('/login', controller_1.LoginUser);
+router.put('/:id', controller_1.UpdateUser);
+router.delete('/:id', controller_1.DeleteUser);
+router.get('/:id', controller_1.GetUser);
 exports.default = router;

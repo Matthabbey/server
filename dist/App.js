@@ -8,6 +8,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const config_1 = __importDefault(require("./config"));
 const index_1 = __importDefault(require("./routes/index"));
 const posts_1 = __importDefault(require("./routes/posts"));
+const category_1 = __importDefault(require("./routes/category"));
 const morgan_1 = __importDefault(require("morgan"));
 dotenv_1.default.config();
 (0, config_1.default)();
@@ -17,6 +18,7 @@ app.use((0, morgan_1.default)("dev"));
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use('/api/post', posts_1.default);
 app.use('/api/user', index_1.default);
+app.use('/api/cat', category_1.default);
 app.listen("5000", () => {
     console.log("Server is running here");
 });

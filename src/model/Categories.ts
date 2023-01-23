@@ -16,4 +16,4 @@ const CategorySchema = new Schema<CategoryInstance>(
   }
 );
 
-export const CategoryModel = mongoose.model<CategoryInstance>("Users", CategorySchema);
+export const CategoryModel = mongoose.model<CategoryInstance>("Category", CategorySchema);

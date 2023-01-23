@@ -85,8 +85,9 @@ export const GetUser = async (req: Request, res: Response) =>{
     try {
         const userId = req.params.id
         const findUser = await UserModel.findById(userId)
-        // const { password, ...others } = findUser
-        console.log(findUser)
+        if(!findUser){
+            return res.status(404).json({message: "This user is not found"})
+        }
         return res.status(200).json({message: "Successfully fetched", findUser})
     } catch (error) {
         return res.status(500).json({message: console.log(error)})

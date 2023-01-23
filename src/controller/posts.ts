@@ -12,6 +12,9 @@ export const CreatePost = async (req: Request, res: Response) => {
       category,
       username,
     });
+    // if(title || username) return res.status(401).json({msg: "The title or username already in use"})
+    console.log("See me here");
+    
     const savedPost = await createPost.save();
     return res.status(201).json({ msg: "Successfully created", savedPost });
   } catch (error) {
@@ -73,6 +76,14 @@ export const GetUserPost = async (req: Request, res: Response) => {
 
 export const GetAllUserPosts = async (req: Request, res: Response) => {
     try {
+        const username = req.query.user
+        const catName = req.query.cat
+         
+        let posts 
+        if(username || catName){
+            posts = await PostModel.find({username, categories: {$in: [catName]}})
+            return res.status(200).json({user: posts})
+        }
       const findUser = await PostModel.find();
       if (!findUser) {
         return res.status(404).json({ message: "This user is not found" });

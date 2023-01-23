@@ -6,6 +6,6 @@ const router = express.Router()
  router.put('/update/:id', UpdatePost)
  router.delete('/delete/:id', DeleteUserPost)
  router.get('/get/:id', GetUserPost)
- router.get('/getAll', GetAllUserPosts)
+ router.get('/', GetAllUserPosts)
 
  export default router

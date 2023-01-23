@@ -10,10 +10,10 @@ export interface PostInstance {
 
 const PostSchema = new Schema<PostInstance>(
   {
-    title: { String, required: true, unique: true },
-    desc: { String, required: true},
-    photo: {String, required: false},
-    username: {String, required: true},
+    title: {type: String, required: true, unique: true },
+    desc: { type: String, required: true},
+    photo: { type: String, required: false},
+    username: { type: String, required: true},
     categories: {type: [], required: false}
   },
   {
@@ -21,4 +21,4 @@ const PostSchema = new Schema<PostInstance>(
   }
 );
 
-export const PostModel = mongoose.model<PostInstance>("Users", PostSchema);
+export const PostModel = mongoose.model<PostInstance>("Posts", PostSchema);

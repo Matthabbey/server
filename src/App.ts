@@ -4,6 +4,7 @@ import connectMongoDB from "./config";
 import authRouter from './routes/index'
 import postRouter from './routes/posts'
 import catRouter from './routes/category'
+import cors from 'cors'
 
 import logger from 'morgan'
 dotenv.config()
@@ -11,6 +12,7 @@ dotenv.config()
 
 connectMongoDB()
 const app = express()
+app.use(cors())
 app.use(express.json())
 app.use(logger("dev"))
 app.use(express.urlencoded( { extended: true}))
@@ -21,5 +23,7 @@ app.use('/api/user', authRouter)
 app.use('/api/cat', catRouter)
 
 app.listen("5000", ()=>{
-    console.log("Server is running here")
+    console.log("Server is running here on 5000")
 })
+
+

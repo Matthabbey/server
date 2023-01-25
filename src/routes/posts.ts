@@ -5,7 +5,7 @@ const router = express.Router()
  router.post('/create', CreatePost)
  router.put('/update/:id', UpdatePost)
  router.delete('/delete/:id', DeleteUserPost)
- router.get('/get/:id', GetUserPost)
+ router.get('/:id', GetUserPost)
  router.get('/', GetAllUserPosts)
 
  export default router

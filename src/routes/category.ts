@@ -1,9 +1,9 @@
 import express from 'express'
-import { CreateCategory } from '../controller/Category'
+import { CreateCategory, GetCategory } from '../controller/Category'
 const router = express.Router()
 
 router.post('/create', CreateCategory)
-router.get('/getcat')
+router.get('/get',  GetCategory)
 
 
 

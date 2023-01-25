@@ -1,13 +1,13 @@
 import mongoose, { Schema } from "mongoose";
 
 export interface CategoryInstance {
-  name: string
+  name: string[],
 }
 
 const CategorySchema = new Schema<CategoryInstance>(
   {
     name: {
-        type: String,
+        type: [String],
         required: true
     }
   },

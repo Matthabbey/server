@@ -1,6 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 export interface PostInstance {
+  _id: any | string;
   title: string;
   desc: string;
   photo: string;

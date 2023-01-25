@@ -1,21 +1,24 @@
 import express, { Request, Response } from "express";
-import { PostModel } from "../model/Post";
+import { CategoryModel } from "../model/Categories";
+import { PostInstance, PostModel } from "../model/Post";
 
 export const CreatePost = async (req: Request, res: Response) => {
-  const { title, desc, photo, category, username } = req.body;
+  const { title, desc, photo, categories, username } = req.body;
 
   try {
     const createPost = new PostModel({
       title,
       desc,
       photo,
-      category,
+      categories,
       username,
     });
     // if(title || username) return res.status(401).json({msg: "The title or username already in use"})
     console.log("See me here");
     
     const savedPost = await createPost.save();
+    // const retrievedPost = await PostModel.findOne({title}) as PostInstance;
+    // await CategoryModel.create({name: categories, postId: retrievedPost._id })
     return res.status(201).json({ msg: "Successfully created", savedPost });
   } catch (error) {
     console.log(error);

@@ -84,7 +84,7 @@ export const GetAllUserPosts = async (req: Request, res: Response) => {
          
         let posts 
         if(username || catName){
-            posts = await PostModel.find({username, categories: {$in: [catName]}})
+            posts = await PostModel.findOne({username: username, categories: {$in: [catName]}})
             return res.status(200).json({user: posts})
         }
       const findUser = await PostModel.find();
